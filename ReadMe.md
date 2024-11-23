@@ -28,16 +28,16 @@ You can build docker images locally and pull them into minikube using instructio
 cp  ./config_files/docker/back/Dockerfile ./devops-test-questionnaire/questionnaire-backend/
 
 # build docker image
-docker build --no-cache --progress=plain -t questionnaire-backend ./devops-test-questionnaire/questionnaire-backend/Dockerfile
+docker build --no-cache --progress=plain -t questionnaire-backend:v1 ./devops-test-questionnaire/questionnaire-backend/
 
 # Upload built image from docker to minikube
 minikube image load questionnaire-backend
 
 # copy dockerfile into questionnaire-frontend service source code folder
-cp  ./config_files/docker/back/Dockerfile ./devops-test-questionnaire/questionnaire-backend/
+cp  ./config_files/docker/front/Dockerfile ./devops-test-questionnaire/questionnaire-frontend/
 
 # build docker image
-docker build --no-cache --progress=plain -t questionnaire-frontend ./devops-test-questionnaire/questionnaire-frontend/Dockerfile
+docker build --no-cache --progress=plain -t questionnaire-frontend:v1 ./devops-test-questionnaire/questionnaire-frontend/
 
 # Upload built image from docker to minikube
 minikube image load questionnaire-frontend
@@ -80,7 +80,7 @@ kubectl apply -f ./config_files/k8s/
 
 Wait for ingress address:
 ```bash
-kubectl get ingress
+kubectl get -n questionnaire-namespace ingress
 NAME              CLASS   HOSTS   ADDRESS          PORTS   AGE
 example-ingress   nginx   *       <your_ip_here>   80      5m45s
 ```
@@ -91,7 +91,7 @@ To get ingress to work you’ll need to open a new terminal window and run `mini
 
 In case you installed minikube using Docker environment ( i.e. **NOT** Docker Desctop) then you need to adjust you `/etc/hosts` file with `<ip_from_above>`
 ```bash
-abnet@LabNetVBoxStation:~$ kubectl get ingress
+abnet@LabNetVBoxStation:~$ kubectl get -n questionnaire-namespace ingress
 NAME                         CLASS   HOSTS                 ADDRESS        PORTS   AGE
 questionnaire-api-ingress    nginx   questionnaire.local   192.168.49.2   80      140m
 questionnaire-main-ingress   nginx   questionnaire.local   192.168.49.2   80      140m
