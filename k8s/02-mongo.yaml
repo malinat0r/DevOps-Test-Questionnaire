@@ -1,0 +1,40 @@
+# 02-mongo-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: questionnaire-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:8.0.3-noble
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-pv
+              mountPath: /data/db
+      volumes:
+        - name: mongo-pv
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: questionnaire-namespace
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo
+  type: ClusterIP

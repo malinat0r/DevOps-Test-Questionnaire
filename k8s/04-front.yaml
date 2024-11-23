@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: front-app
+  namespace: questionnaire-namespace
+  labels:
+    app: front
+spec:
+  containers:
+    - name: front-app
+      image: 'questionnaire-frontend'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: front-service
+  namespace: questionnaire-namespace
+spec:
+  selector:
+    app: front
+  ports:
+    - port: 4200

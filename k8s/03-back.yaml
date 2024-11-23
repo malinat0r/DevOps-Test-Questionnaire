@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: back-app
+  namespace: questionnaire-namespace
+  labels:
+    app: back
+spec:
+  containers:
+    - name: back-app
+      image: 'questionnaire-backend'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: back-service
+  namespace: questionnaire-namespace
+spec:
+  selector:
+    app: back
+  ports:
+    - port: 3000
