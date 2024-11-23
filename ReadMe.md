@@ -89,7 +89,7 @@ example-ingress   nginx   *       <your_ip_here>   80      5m45s
 To get ingress to work you’ll need to open a new terminal window and run `minikube tunnel` and in the following step use `127.0.0.1` in place of `<ip_from_above>`.
 
 
-In case you installed minikube using Docker environment ( i.e. **NOT** Docker Desctop) then you need to adjust you `/etc/hosts` file with `<ip_from_above>`
+In case you installed minikube using Docker environment ( i.e. **NOT** Docker Desktop) then you need to adjust you `/etc/hosts` file with `<ip_from_above>`
 ```bash
 abnet@LabNetVBoxStation:~$ kubectl get -n questionnaire-namespace ingress
 NAME                         CLASS   HOSTS                 ADDRESS        PORTS   AGE
