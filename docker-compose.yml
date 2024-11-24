@@ -10,7 +10,7 @@ services:
       retries: 3
 
   back:
-    image: 'questionnaire-backend'
+    image: 'malinovskij/questionnaire-backend:v1'
     depends_on:
       mongodb-service:
         condition: service_healthy
@@ -19,7 +19,7 @@ services:
       - 3000:3000
 
   front:
-    image: 'questionnaire-frontend'
+    image: 'malinovskij/questionnaire-frontend:v1'
     command: 'npm run start'
     ports:
       - 4200:4200

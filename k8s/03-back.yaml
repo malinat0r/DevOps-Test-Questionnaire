@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: back-app
-      image: 'questionnaire-backend:v1'
+      image: 'malinovskij/questionnaire-backend:v1'
 ---
 kind: Service
 apiVersion: v1

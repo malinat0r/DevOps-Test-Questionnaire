@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: front-app
-      image: 'questionnaire-frontend:v1'
+      image: 'malinovskij/questionnaire-frontend:v1'
 ---
 kind: Service
 apiVersion: v1

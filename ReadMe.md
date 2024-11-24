@@ -28,19 +28,19 @@ You can build docker images locally and pull them into minikube using instructio
 cp  ./config_files/docker/back/Dockerfile ./devops-test-questionnaire/questionnaire-backend/
 
 # build docker image
-docker build --no-cache --progress=plain -t questionnaire-backend:v1 ./devops-test-questionnaire/questionnaire-backend/
+docker build --no-cache --progress=plain -t malinovskij/questionnaire-backend:v1 ./devops-test-questionnaire/questionnaire-backend/
 
 # Upload built image from docker to minikube
-minikube image load questionnaire-backend
+minikube image load malinovskij/questionnaire-backend:v1
 
 # copy dockerfile into questionnaire-frontend service source code folder
 cp  ./config_files/docker/front/Dockerfile ./devops-test-questionnaire/questionnaire-frontend/
 
 # build docker image
-docker build --no-cache --progress=plain -t questionnaire-frontend:v1 ./devops-test-questionnaire/questionnaire-frontend/
+docker build --no-cache --progress=plain -t malinovskij/questionnaire-frontend:v1 ./devops-test-questionnaire/questionnaire-frontend/
 
 # Upload built image from docker to minikube
-minikube image load questionnaire-frontend
+minikube image load malinovskij/questionnaire-frontend:v1
 ```
 
 ## Run Docker Compose
