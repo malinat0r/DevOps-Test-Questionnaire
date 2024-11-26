@@ -22,6 +22,13 @@ spec:
           volumeMounts:
             - name: mongo-pv
               mountPath: /data/db
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: "1"
+            requests:
+              memory: 512Mi
+              cpu: "0.2"
       volumes:
         - name: mongo-pv
           emptyDir: {}

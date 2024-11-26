@@ -45,7 +45,7 @@ minikube image load malinovskij/questionnaire-frontend:v1
 
 ## Run Docker Compose
 
-You can run the applicatiop in order to test built images in Docker compose. If do not want to do it, just skip this chapter.
+You can run the application in order to test built images in Docker compose. If you do not want to do it, just skip this chapter.
 
 ```bash
 docker compose --file ./config_files/docker-compose.yml up
@@ -56,9 +56,9 @@ Update your `/etc/hosts` file:
 ```bash
 sudo echo "127.0.0.1 questionnaire.local" >> /etc/hosts
 ```
-Open url in browser `"http://questionnaire.local/"` and test the application
+Open url http://questionnaire.local/ in browser and test the application.
 
-Shut down docker compose
+Shut down docker compose:
 ```bash
 docker compose --file ./config_files/docker-compose.yml down
 ```
@@ -73,7 +73,7 @@ If you haven't already, install the Nginx Ingress Controller in your Minikube cl
 minikube addons enable ingress
 ```
 
-Apply the application manifests
+Apply the application manifests:
 ```bash
 kubectl apply -f ./config_files/k8s/
 ```
@@ -101,4 +101,4 @@ labnet@LabNetVBoxStation:~$
 192.168.49.2 questionnaire.local
 #127.0.0.1 questionnaire.local
 ```
-Now you can start testing of application - open url in browser `"http://questionnaire.local/"`. 
+Now you can start testing of application - open url http://questionnaire.local/ in browser. 
