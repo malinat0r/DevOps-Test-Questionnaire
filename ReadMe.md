@@ -36,11 +36,14 @@ minikube image load malinovskij/questionnaire-backend:v1
 # copy dockerfile into questionnaire-frontend service source code folder
 cp  ./config_files/docker/front/Dockerfile ./devops-test-questionnaire/questionnaire-frontend/
 
+# copy nginx config file for frontoffice container
+cp ./config_files/nginx/conf.d/default.conf ./devops-test-questionnaire/questionnaire-frontend/
+
 # build docker image
-docker build --no-cache --progress=plain -t malinovskij/questionnaire-frontend:v1 ./devops-test-questionnaire/questionnaire-frontend/
+docker build --no-cache --progress=plain -t malinovskij/questionnaire-frontend:v2 ./devops-test-questionnaire/questionnaire-frontend/
 
 # Upload built image from docker to minikube
-minikube image load malinovskij/questionnaire-frontend:v1
+minikube image load malinovskij/questionnaire-frontend:v2
 ```
 
 ## Run Docker Compose

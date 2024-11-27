@@ -19,21 +19,10 @@ services:
       - 3000:3000
 
   front:
-    image: 'malinovskij/questionnaire-frontend:v1'
-    command: 'npm run start'
+    image: 'malinovskij/questionnaire-frontend:v2'
     ports:
-      - 4200:4200
+      - 80:80
     depends_on:
       mongodb-service:
         condition: service_healthy
         restart: true
-
-  nginx:
-    image: nginx
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      front:
-        condition: service_started

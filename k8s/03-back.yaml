@@ -29,7 +29,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: back-service
+  name: back
   namespace: questionnaire-namespace
 spec:
   selector:

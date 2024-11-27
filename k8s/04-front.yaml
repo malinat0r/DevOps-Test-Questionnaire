@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: front-app
-          image: 'malinovskij/questionnaire-frontend:v1'
+          image: 'malinovskij/questionnaire-frontend:v2'
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           resources:
             limits:
               memory: 1024Mi
@@ -35,4 +35,4 @@ spec:
   selector:
     app: front
   ports:
-    - port: 4200
+    - port: 80
